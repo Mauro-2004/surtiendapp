@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurtiendApp</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="../../js/procesoadmin.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-image: url('../../src/Grocery_Store.jpg'); background-size: cover; background-repeat: no-repeat;"onload="comprobar()">
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../src/Logo.png" alt="Logo" style="max-height: 65px; margin-right: 20px; margin-top: -10px; margin-bottom: -10px;">
+      </a>
+      <a class="navbar-brand fs-3 fw-semibold" href="../../index.html">SurtiendApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <a href="../../index.html" class="btn btn-primary btn-black-text ms-lg-3" style="height: 40px; width: 150px;" onclick="cerrarsesion()"><h5>Cerrar Sesion</h5></a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido Central -->
+  <div class="container mt-5" style="margin-bottom: 80px;">
+    <h1 class="text-center text-light">Inventario</h1>
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Proveedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí llenaremos la primera tabla con 20 productos -->
+            <!-- Puedes agregar más productos o modificarlos según necesites -->
+            <tr>
+              <td>Producto 1</td>
+              <td>10</td>
+              <td>$5</td>
+              <td>Proveedor A1</td>
+            </tr>
+            <tr>
+              <td>Producto 2</td>
+              <td>5</td>
+              <td>$10</td>
+              <td>Proveedor A2</td>
+            </tr>
+            <tr>
+              <td>Producto 3</td>
+              <td>10</td>
+              <td>$15</td>
+              <td>Proveedor A3</td>
+            </tr>
+            <tr>
+              <td>Producto 4</td>
+              <td>5</td>
+              <td>$20</td>
+              <td>Proveedor A4</td>
+            </tr>
+            <tr>
+              <td>Producto 5</td>
+              <td>10</td>
+              <td>$25</td>
+              <td>Proveedor A5</td>
+            </tr>
+            <tr>
+              <td>Producto 6</td>
+              <td>5</td>
+              <td>$30</td>
+              <td>Proveedor A6</td>
+            </tr>
+            <tr>
+              <td>Producto 7</td>
+              <td>10</td>
+              <td>$26</td>
+              <td>Proveedor A7</td>
+            </tr>
+            <tr>
+              <td>Producto 8</td>
+              <td>5</td>
+              <td>$16</td>
+              <td>Proveedor A8</td>
+            </tr>
+            <tr>
+              <td>Producto 9</td>
+              <td>10</td>
+              <td>$11</td>
+              <td>Proveedor A9</td>
+            </tr><tr>
+              <td>Producto 10</td>
+              <td>5</td>
+              <td>$6</td>
+              <td>Proveedor A10</td>
+            </tr>
+            <!-- Agregar más productos aquí -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Proveedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí llenaremos la segunda tabla con 15 productos -->
+            
+            <!-- Puedes agregar más productos o modificarlos según necesites -->
+            <tr>
+              <td>Producto 1</td>
+              <td>10</td>
+              <td>$5</td>
+              <td>Proveedor B1</td>
+            </tr>
+            <tr>
+              <td>Producto 2</td>
+              <td>5</td>
+              <td>$10</td>
+              <td>Proveedor B2</td>
+            </tr>
+            <tr>
+              <td>Producto 3</td>
+              <td>10</td>
+              <td>$15</td>
+              <td>Proveedor B3</td>
+            </tr>
+            <tr>
+              <td>Producto 4</td>
+              <td>5</td>
+              <td>$20</td>
+              <td>Proveedor B4</td>
+            </tr>
+            <tr>
+              <td>Producto 5</td>
+              <td>10</td>
+              <td>$25</td>
+              <td>Proveedor B5</td>
+            </tr>
+            <tr>
+              <td>Producto 6</td>
+              <td>5</td>
+              <td>$30</td>
+              <td>Proveedor B6</td>
+            </tr>
+            <tr>
+              <td>Producto 7</td>
+              <td>10</td>
+              <td>$26</td>
+              <td>Proveedor B7</td>
+            </tr>
+            <tr>
+              <td>Producto 8</td>
+              <td>5</td>
+              <td>$16</td>
+              <td>Proveedor B8</td>
+            </tr>
+            <tr>
+              <td>Producto 9</td>
+              <td>10</td>
+              <td>$11</td>
+              <td>Proveedor B9</td>
+            </tr><tr>
+              <td>Producto 10</td>
+              <td>5</td>
+              <td>$6</td>
+              <td>Proveedor B10</td>
+            </tr>
+            <!-- Agregar más productos aquí -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Proveedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí llenaremos la tercera tabla con 15 productos -->
+            <!-- Puedes agregar más productos o modificarlos según necesites -->
+            <tr>
+              <td>Producto 1</td>
+              <td>10</td>
+              <td>$5</td>
+              <td>Proveedor C1</td>
+            </tr>
+            <tr>
+              <td>Producto 2</td>
+              <td>5</td>
+              <td>$10</td>
+              <td>Proveedor C2</td>
+            </tr>
+            <tr>
+              <td>Producto 3</td>
+              <td>10</td>
+              <td>$15</td>
+              <td>Proveedor C3</td>
+            </tr>
+            <tr>
+              <td>Producto 4</td>
+              <td>5</td>
+              <td>$20</td>
+              <td>Proveedor C4</td>
+            </tr>
+            <tr>
+              <td>Producto 5</td>
+              <td>10</td>
+              <td>$25</td>
+              <td>Proveedor C5</td>
+            </tr>
+            <tr>
+              <td>Producto 6</td>
+              <td>5</td>
+              <td>$30</td>
+              <td>Proveedor C6</td>
+            </tr>
+            <tr>
+              <td>Producto 7</td>
+              <td>10</td>
+              <td>$26</td>
+              <td>Proveedor C7</td>
+            </tr>
+            <tr>
+              <td>Producto 8</td>
+              <td>5</td>
+              <td>$16</td>
+              <td>Proveedor C8</td>
+            </tr>
+            <tr>
+              <td>Producto 9</td>
+              <td>10</td>
+              <td>$11</td>
+              <td>Proveedor C9</td>
+            </tr><tr>
+              <td>Producto 10</td>
+              <td>5</td>
+              <td>$6</td>
+              <td>Proveedor C10</td>
+            </tr>
+            <!-- Agregar más productos aquí -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+<footer class="bg-light py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-9">
+        <h6>Siguenos</h6>
+        <ul class="list-unstyled">
+          <li>
+            <section class="buttons d-flex justify-content-start align-items-center">
+              <a href="https://www.facebook.com/" class="fa fa-facebook btn btn-primary btn-lg  m-2"></a>
+              <a href="https://www.instagram.com/" class="fa fa-instagram btn btn-primary btn-lg  m-1"></a>
+              <a href="https://www.youtube.com/" class="fa fa-youtube btn btn-primary btn-lg  m-1"></a>
+              <a href="https://www.linkedin.com" class="fa fa-linkedin btn btn-primary btn-lg  m-1"></a>
+            </section>
+          </li>     
+        <ul class="list-inline">
+          <li class="list-inline-item">&copy; 2023 SurtiendApp, Inc. All rights reserved.</li>
+          <li class="list-inline-item">
+            <a href="https://support.wix.com/es/article/crear-una-pol%C3%ADtica-de-t%C3%A9rminos-y-condiciones">Terms
+              of use and privacy policy</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-3">
+        <div>
+          <address>
+            SutiendApp<br />
+            Barranquilla, Atlantico<br />
+            <abbr title="Telephone">T:</abbr><a href="tel:+919876543210">(123) 654-3210</a><br />
+            <abbr title="Mail">M:</abbr><a href="mailto:info@domain.com">Ventas@SutienApp.com</a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+[
+    {
+      "usuario": "Admin123",
+      "contraseña": "admin123",
+      "privilegios": "Admin"
+    },
+    {
+      "usuario": "User123",
+      "contraseña": "user123",
+      "privilegios": "User"
+    },
+    {
+      "usuario": "deliver123",
+      "contraseña": "deliver123",
+      "privilegios":"repartidor"
+    }
+  ]

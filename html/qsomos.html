@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurtiendApp</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="../js/procesoini.js"></script>
+  <script src="js/procesologin.js"></script>
+  <script src="../js/procesoregis.js"></script>
+</head>
+
+<body style="background-image: url('../src/Grocery_Store.jpg'); background-size: cover; background-repeat: no-repeat;" onload="comprobar()">
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../src/Logo.png" alt="Logo" style="max-height: 70px; margin-right: 20px; margin-top: -5px; margin-bottom: -5px;">
+      </a>
+      <a class="navbar-brand fs-3 fw-semibold" href="../index.html">SurtiendApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <a class="btn btn-primary btn-black-text ms-lg-3" data-toggle="modal"   data-target="#myModal">Iniciar Sesion</a>
+        </ul>
+      </div>
+
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <img src="../src/Logo.png" style="width: 52px; height: 42px;">
+    
+    
+              <h4 class="modal-title ">INICIO DE SESION</h4>
+              <div class="px-1"></div>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <!-- Contenido del modal... -->
+              <!-- Formulario de login -->
+              <div class="container d-flex justify-content-center align-items-center">
+                <div class="card" style="width: 500px;">
+                  <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Iniciar Sesion</h2>
+                    <form onsubmit="verificarLogin(event)">
+                      <div class="mb-3">
+                        <label for="username" class="form-label">Correo</label>
+                        <input type="text" class="form-control" id="username" placeholder="E-mail">
+                      </div>
+                      <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+                      </div>
+                      <button type="button" class="btn btn-primary w-100 " onclick="login()">Iniciar sesión</button>
+                      <p class=" register-link mt-3 text-center">¿No tienes una cuenta?
+                        
+                        <button type="button" style="height: 40px;  width: 100px;"
+                          class="btn btn-info btn-black-text ms-lg-3" data-toggle="modal"
+                          data-target="#modalregistro">Registrate</button>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+      <div class="modal fade" id="modalregistro">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <img src="../src/Logo.png" style="width: 52px; height: 42px;">
+              <h4 class="modal-title ">REGISTRATE</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <!-- Contenido del modal... -->
+              <!-- Formulario de login -->
+              <div class="container d-flex justify-content-center align-items-center vh-100">
+                <div class="card" style="width: 600px;">
+                  <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Registro</h2>
+                    <form>
+                      <div class="mb-3">
+                        <label for="username" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="username" placeholder="Nombre completo">
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                      </div>
+                      <div class="mb-3">
+                        <label for="phone" class="form-label">Telefono</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Movil">
+                      </div>
+                      <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" placeholder="Confirme su contraseña">
+                      </div>
+                      <div class="mb-3">
+                        <label for="address" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" id="address" placeholder="Dirección y Barrio">
+                      </div>
+                      <button type="button" onclick="registro()" class="btn btn-primary w-100"
+                        href="../html/login.html">Registrarse</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>
+  
+  <div class="container my-5">
+    <h1 class="title text-center text-light mt-5 mb-5">Quienes Somos</h1>
+    <div class="row">
+      <div class="col-md-6 mb-5 mt-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title text-center">Misión</h3>
+            <p class="card-text">Nuestra misión es facilitar la vida de las personas al proporcionarles una plataforma
+              intuitiva y accesible para solicitar y gestionar sus domicilios de manera rápida y segura. Nos esforzamos
+              por establecer asociaciones sólidas con restaurantes, tiendas y proveedores locales para ampliar las
+              opciones disponibles para nuestros usuarios y garantizar la entrega puntual de los productos solicitados.
+              Además, buscamos impulsar el crecimiento económico de los negocios locales al conectarlos con una base de
+              clientes más amplia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-5 mt-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title text-center">Visión</h3>
+            <p class="card-text">Nuestra visión es convertirnos en la aplicación líder de gestión de domicilios, brindando
+              un servicio confiable y eficiente que satisfaga las necesidades de nuestros usuarios. Queremos revolucionar
+              la forma en que se realizan los pedidos a domicilio, ofreciendo una experiencia sin complicaciones y
+              superando las expectativas de nuestros clientes en cada entrega.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <h1 class="title text-center text-light mt-5 mb-5" id="fund">Fundadores</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card m-4 p-3 rounded" style="text-align: center; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);">
+            <img src="../src/Marchena.jpg" class="card-img-top rounded-circle mx-auto d-block" style="width: 65%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <div class="card-body">
+              <h5 class="card-title fw-bold fs-3">Mauro Marchena</h5>
+              <p class="card-text">Estudiante Ingenieria Telematica Institucion Univesitaria de Barranquilla</p>
+              <a href="https://instagram.com/mauricio_marchena?igshid=NGExMmI2YTkyZg==" class="btn btn-primary px-4 py-2">Conocer más</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card m-4 p-3 rounded" style="text-align: center; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);">
+            <img src="../src/niebles.jpg" class="card-img-top rounded-circle mx-auto d-block" style="width: 65%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <div class="card-body">
+              <h5 class="card-title fw-bold fs-3">Cristian Niebles</h5>
+              <p class="card-text">Estudiante Ingenieria Telematica Institucion Univesitaria de Barranquilla</p>
+              <a href="https://www.facebook.com/cristian.niebles.16?mibextid=ZbWKwL" class="btn btn-primary  px-4 py-2">Conocer más</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card m-4 p-3 rounded" style="text-align: center; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);">
+            <img src="../src/john.jpg" class="card-img-top rounded-circle mx-auto d-block" style="width: 65%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <div class="card-body">
+              <h5 class="card-title fw-bold fs-3">John Capacho</h5>
+              <p class="card-text">Estudiante Ingenieria Telematica Institucion Univesitaria de Barranquilla</p>
+              <a href="https://www.linkedin.com/in/johncapacho/" class="btn btn-primary  px-4 py-2">Conocer más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="title text-center text-light mt-5 mb-5" id="profe">Mentor</h1>
+    <div class="align-items-center">
+      <div class="card m-4 p-3 rounded" style="text-align: center; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);">
+        <img src="../src/profe.png" class="card-img-top rounded-circle mx-auto d-block" style="width: 30%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+        <div class="card-body">
+          <h5 class="card-title fw-bold fs-3">BRYAN FERNANDEZ EBRATH</h5>
+          <p class="card-text">Ingeniero de Sistemas</p>
+          <p class="card-text">Magister en Gestión de la Tecnología Educativa</p>
+          <a href="https://www.linkedin.com/in/bryan-fernandez-ebrath-536a53253/" class="btn btn-primary px-4 py-2">Conocer más</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+
+<!-- Pie de página -->
+<footer class="bg-light py-2">
+  <div class="container footer-container d-flex flex-column justify-content-between">
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <div>
+          <address>
+            SutiendApp<br />
+            Barranquilla, Atlantico<br />
+            <abbr title="Telephone">T:</abbr><a href="tel:+919876543210">(123) 654-3210</a><br />
+            <abbr title="Mail">M:</abbr><a href="mailto:info@domain.com">Ventas@SutienApp.com</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-9">
+        <div>
+          <ul class="list-inline">
+            <li class="list-inline-item">&copy; 2023 SurtiendApp, Inc. All rights reserved.</li>
+            <li class="list-inline-item">
+              <a href="https://support.wix.com/es/article/crear-una-pol%C3%ADtica-de-t%C3%A9rminos-y-condiciones">Terms of use and privacy policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</html>
