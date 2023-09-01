@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -51,8 +52,30 @@ def register_repartidor():
     except Exception as e:
         print(e)
         return jsonify({"informacion":e})
+    
 #------------------------------------------------------------------------------------------------------------------------------------
-
+@cross_origin()
+@app.route('/register_producto', methods=['POST'])
+def register_producto():
+    try:
+        if request.method == 'POST':
+            print("wwwwwwwwwwww")
+            nombre_v = request.json['nombre'] ## nombre
+            descripcion_v = request.json['descripcion']        ## email
+            precio_v = request.json['precio']
+            cantidad_v = request.json['cantidad_disponible']
+            url_v = request.json['url']
+            print(url_v)
+            fecha_v=  datetime.now()
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO producto (nombre, descripcion, precio, cantidad_disponible, fecha_registro, url) VALUES (%s,%s,%s,%s,%s,%s)",(nombre_v,descripcion_v,precio_v,cantidad_v,fecha_v,url_v))
+            mysql.connection.commit()
+            return jsonify({"informacion":"Registro exitoso"})
+        
+    except Exception as e:
+        print(e)
+        return jsonify({"informacion":e})
+#------------------------------------------------------------------------------------------------------------------------------------
 @cross_origin()
 @app.route('/compare', methods=['POST'])
 def compare():
@@ -103,37 +126,42 @@ def compare():
         print(e)
         return jsonify({"informacion":e})
 #--------------------------------------------------------------------------------------------------------------------------------------------
-@app.route('/update/<id>', methods=['PUT'])
-def update_contact(id):
+@app.route('/mostrarProducto', methods=['GET'])
+def mostrarProducto():
     try:
-        user_v = request.json['user']
-        telefono_v = request.json['telefono']
-        email_v = request.json['email']
-        contrasena = request.json['contrasena']
+        
         cur = mysql.connection.cursor()
-        cur.execute("""
-        UPDATE registro
-        SET nombre = %s,
-            correo = %s,
-            telefono = %s
-        WHERE id = %s
-        """, (user_v, email_v, telefono_v, contrasena))
+        cur.execute('SELECT * from producto')
+        rv= cur.fetchall()
+        payload=[]
+        content={}
+        for result in rv:
+            content={'id':result[0] ,'nombre':result[1], 'descripcion':result[2], 'precio':result[3], 'cantidad_disponible':result[4], 'fecha_registro':result[5], 'url': result[7]}
+            payload.append(content)
+            content={}
         mysql.connection.commit()
-        return jsonify({"informacion":"Registro actualizado"})
+        return jsonify(payload)
     except Exception as e:
         print(e)
         return jsonify({"informacion":e})
 
 #-------------------------------------------------------------------------------------------------------
-
-
-@app.route('/delete/<id>', methods = ['DELETE'])
-def delete_contact(id):
+@app.route('/getlist', methods=['GET'])
+def getlist():
     try:
+        
         cur = mysql.connection.cursor()
-        cur.execute('DELETE FROM registro WHERE id = %s', (id,))
+        cur.execute('SELECT * from producto')
+        rv= cur.fetchall()
+        cur.close()
+        payload=[]
+        content={}
+        for result in rv:
+            content={'id':result[0] ,'nombre':result[1], 'descripcion':result[2], 'precio':result[3], 'cantidad_disponible':result[4], 'fecha_registro':result[5]}
+            payload.append(content)
+            content={}
         mysql.connection.commit()
-        return jsonify({"informacion":"Registro eliminado"}) 
+        return jsonify(payload)
     except Exception as e:
         print(e)
         return jsonify({"informacion":e})

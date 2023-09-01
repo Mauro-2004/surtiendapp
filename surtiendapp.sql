@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-07-2023 a las 21:30:11
+-- Tiempo de generación: 16-08-2023 a las 19:01:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -85,14 +85,24 @@ CREATE TABLE `pedido` (
 --
 
 CREATE TABLE `producto` (
-  `id` varchar(16) NOT NULL,
+  `id` int(16) NOT NULL,
   `nombre` varchar(32) NOT NULL,
   `descripcion` text NOT NULL,
   `precio` int(11) NOT NULL,
   `cantidad_disponible` int(11) NOT NULL,
   `fecha_registro` date NOT NULL DEFAULT current_timestamp(),
-  `id_pedido` int(11) NOT NULL
+  `id_pedido` int(11) NOT NULL,
+  `url` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `cantidad_disponible`, `fecha_registro`, `id_pedido`, `url`) VALUES
+(10, 'Carne de res', 'Carne', 2500, 3, '2023-08-16', 0, 'https://hips.hearstapps.com/hmg-prod/images/different-types-of-animal-protein-royalty-free-image-1654761853.jpg'),
+(11, 'Lentejas', 'Granos', 1000, 3, '2023-08-16', 0, 'https://i0.wp.com/goula.lat/wp-content/uploads/2021/05/granos.jpg?fit=1000%2C673&ssl=1'),
+(12, 'Pollo', 'Pollo criollo', 4000, 3, '2023-08-16', 0, 'https://static.eldiario.es/clip/d210311d-65b7-4359-ae7a-11bf2ef96f22_16-9-discover-aspect-ratio_default_0.jpg');
 
 -- --------------------------------------------------------
 
@@ -172,6 +182,12 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `pedido`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `repartidor`

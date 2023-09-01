@@ -20,6 +20,9 @@
 function login() {
   var v_usuario = document.getElementById("username").value;
   var v_contraseña = document.getElementById("password").value;
+  if((v_usuario || v_contraseña) == ""){
+    alert("Rellene todos los campos para poder registrarse")
+   }else{
   try {
     axios({
       method: 'POST',
@@ -33,15 +36,15 @@ function login() {
 
       if (comprobar == "user") {
         alert("INICIO DE SESION EXITOSO");
-        window.location.href = "html/user/mainuser.html"
+        window.location.href = "../html/user/mainuser.html"
         localStorage.setItem("privilegios", "User");
       } else if (comprobar == "Admin") {
         alert("INICIO DE SESION EXITOSO");
-        window.location.href = "html/admin/mainadmin.html",
+        window.location.href = "../html/admin/mainadmin.html",
         localStorage.setItem("privilegios", "Admin");
       } else{
         alert("INICIO DE SESION EXITOSO");
-        window.location.href = "html/deliverer/maindeliverer.html"
+        window.location.href = "../html/deliverer/maindeliverer.html"
         localStorage.setItem("privilegios", "repartidor");
       }
     }
@@ -52,4 +55,5 @@ function login() {
     console.log(error)
   }
 
+  }
 }

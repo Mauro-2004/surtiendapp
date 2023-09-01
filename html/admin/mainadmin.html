@@ -10,14 +10,15 @@
   <script src="../../js/procesoadmin.js"></script>
   <script src="../../js/procesoregis.js"></script>
 
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300" rel="stylesheet" />
 
-    <!-- MODAL -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Hasta aqui -->
+  <!-- MODAL -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Hasta aqui -->
+
 </head>
 
 <body style="background-image: url('../../src/Grocery_Store.jpg'); background-size: cover; background-repeat: no-repeat;" onload="comprobar()">
@@ -34,8 +35,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
-          <a  href="../../index.html" class="btn btn-primary btn-black-text ms-lg-3" style="height: 40px; width: 150px;" onclick="cerrarsesion()"><h5>Cerrar
-            Sesion</h5></a>
+          <a  href="../../index.html" class="btn btn-primary btn-black-text ms-lg-3" style="height: 40px; width: 150px;" onclick="cerrarsesion()"><h5>Cerrar Sesion</h5></a>
         </ul>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -92,31 +92,113 @@
   </div>
 
   <!-- Contenido Central -->
-  <div class="container my-5">
-    <h1 class="welcome-text text-center my-5 text-light">Bienvenido/a</h1>
-    <div class="row">
-      <div class="col-md-6 col-sm-6 my-5">
-        <a href="gpedidos.html">
-          <div class="card custom-card">
-            <img src="../../src/pedidos.jpg" class="card-img-top img-fluid" alt="Imagen 1">
-            <div class="card-body">
-              <h5 class="card-title">Gestion de Pedidos</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-6 col-sm-6 my-5">
-        <a href="gproductos.html">
-          <div class="card custom-card">
-            <img src="../../src/inventario.jpg" class="card-img-top img-fluid" alt="Imagen 2">
-            <div class="card-body">
-              <h5 class="card-title">Gestion de Productos</h5>
-            </div>
-          </div>
-        </a>
-      </div>
+  <main class="container py-4">
+
+    <div>
+      <section class="row row-cols-1 row-cols-md-5 g-4">
+        <div class="col">
+          <figure class="card p-3">
+            <a href="gpedidos.html">
+              <div class="card custom-card">
+                <div class="card-body">
+                  <h5 class="card-title">Gestion de Pedidos</h5>
+                </div>
+              </div>
+            </a>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="card p-3">
+            <h3 class="h4">Total Registros</h3>
+            <canvas id="chart3" class="w-100"></canvas>
+          </figure>
+        </div>
+  
+        <div class="col">
+          <figure class="card p-3">
+            <h3 class="h4">Ganancia*dia</h3>
+            <canvas id="chart4" class="w-100"></canvas>
+          </figure>
+        </div>
+  
+        <div class="col">
+          <figure class="card p-3">
+            <h3 class="h4">MVRepartidor</h3>
+            <canvas id="chart5" class="w-100"></canvas>
+          </figure>
+        </div>
+
+        <div class="col">
+          <figure class="card p-3">
+            <a href="gproductos.html">
+              <div class="card custom-card">
+                <div class="card-body">
+                  <h5 class="card-title">Gestion de Productos</h5>
+                </div>
+              </div>
+            </a>
+          </figure>
+        </div>
+      </section>
     </div>
-  </div>
+
+  <!-- Chartjs -->
+    <section class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico radial</p>
+          <h3 class="h4">Categoria mas vendida</h3>
+          <canvas id="chart1" class="w-100"></canvas>
+        </figure>
+      </div>
+
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico de área polar</p>
+          <h3 class="h4">Barrios con mas pedidos</h3>
+          <canvas id="chart2" class="w-100"></canvas>
+        </figure>
+      </div>
+    </section>
+
+    <section class="row row-cols-1 row-cols-md-1 g-4">
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico lineal</p>
+          <h3 class="h4">Registros diarios</h3>
+          <canvas id="chart6" class="w-100"></canvas>
+        </figure>
+      </div>
+    </section>
+
+    <section class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico de barras</p>
+          <h3 class="h4">Ventas totales</h3>
+          <canvas id="chart3" class="w-100"></canvas>
+        </figure>
+      </div>
+
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico de <em>donut</em></p>
+          <h3 class="h4">Pedidos entregados por dia</h3>
+          <canvas id="chart4" class="w-100"></canvas>
+        </figure>
+      </div>
+
+      <div class="col">
+        <figure class="card p-3">
+          <p>Gráfico de barras</p>
+          <h3 class="h4">Pedidos por dias</h3>
+          <canvas id="chart5" class="w-100"></canvas>
+        </figure>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 
@@ -162,5 +244,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- ChartJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<!-- Styles for charts -->
+<script src="../js/chartStyles.js"></script>
+<!-- DCharts development -->
+<script src="../js/script.js"></script>
 
 </html>
